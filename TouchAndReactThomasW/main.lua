@@ -55,6 +55,7 @@ end
 -- Description: when red button is clicked, it will make the text appear with the red button,
 -- and make the blue button disappear
 local function RedButtonListener(touch)
+	
 	if (touch.phase == "began") then
 		redButton.isVisible = true
 		blueButton.isVisible = false  
