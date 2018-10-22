@@ -16,6 +16,17 @@ display.setStatusBar(display.HiddenStatusBar)
 -- sets the background colour
 display.setDefault("background", 124/255, 249/255, 199/255)
 
+--------------------------------------------------------------------------
+-- SOUNDS
+-------------------------------------------------------------------------
+-- Correct sound
+local correctSound = audio.loadSound("Sounds/correctSound.mp3") -- setting a variable an mp3 file 
+local correctSoundChannel1
+
+-- Wrong sound
+local wrongSound = audio.loadSound("Sounds/wrongSound.mp3") -- setting a variable an mp3 file 
+local wrongSoundChannel1
+
 -- create local variable 
 local textObject
 
@@ -32,3 +43,6 @@ local textObject2
 -- displays text on the screen at position x = 500 and y = 500 with 
 -- a deafult font style and font size of 50
 textObject2 = display.newText( "By Thomas Wehbi" , 400, 500, nil, 75)
+
+correctSoundChannel1 = audio.play(correctSound)
+wrongSoundChannel1 = audio.play(wrongSound)

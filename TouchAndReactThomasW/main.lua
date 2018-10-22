@@ -9,6 +9,19 @@ display.setDefault ("background", 153/255, 204/255, 255/255)
 
 --hide status bar
 display.setStatusBar(display.HiddenStatusBar)
+
+-----------------------------------------------------------------
+-- SOUNDS
+-----------------------------------------------------------------
+
+-- create sound
+local correctSound = audio.loadSound(" Sounds/correctSound.mp3") -- Setting a variable to an mp3 file
+local correctSoundChannel1
+
+-- create sound
+local wrongSound = audio.loadSound(" Sounds/wrongSound.mp3") -- Setting a variable to an mp3 file
+local wrongSoundChannel1
+
 -- create blue button, set its position and make it visible
 local blueButton = display.newImageRect("Images/Fast Button Inactive@2x.png",198, 96)
 blueButton.x = display.contentWidth/2
@@ -38,12 +51,15 @@ local function BlueButtonListener(touch)
 		blueButton.isVisible = false
 		redButton.isVisible = true 
 		textObject.isVisible = true 
+		correctSoundChannel1 = audio.play(correctSound)
 	end
 
 	if (touch.phase == "ended") then 
 		blueButton.isVisible = true 
 		redButton.isVisible = false
 		textObject.isVisible = false
+		wrongSoundChannel1 = audio.play(wrongSound)
+
 	end
 
 end
