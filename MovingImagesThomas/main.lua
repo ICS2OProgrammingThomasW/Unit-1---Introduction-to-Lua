@@ -16,6 +16,18 @@ local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536
 -- character image with width and height
 local beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
 
+---------------------------------------------------------------
+-- SOUNDS
+---------------------------------------------------------------
+
+-- Correct sound
+local correctSound = audio.loadSound("Sounds/correctSound.mp3") --Setting a variable to an mp3 file 
+local correctSoundChannel1
+
+-- Wrong sound
+local wrongSound = audio.loadSound("Sounds/wrongSound.mp3") --Setting a variable to an mp3 file 
+local wrongSoundChannel1
+
 -- set the image to be transparent
 beetleship.alpha = 0
 
@@ -32,6 +44,7 @@ local function MoveShip(event)
 	beetleship.x = beetleship.x + scrollSpeed
 	-- change the transparency of the ship every time it moves so that it fades out
 	beetleship.alpha = beetleship.alpha + 0.01
+	correctSoundChannel1 = audio.play(correctSound) 
 end
 
 -- Move Ship will be called over and over again
@@ -60,6 +73,7 @@ local function MoveRocket(event)
 	rocketship.x = rocketship.x - scrollSpeedRocket
 	-- change the transparency of the ship every time it moves so that it fades out
 	rocketship.alpha = rocketship.alpha + 0.01
+	wrongSoundChannel1 = audio.play(wrongSound)
 end
 
 -- Move rocket will be called over and over again
