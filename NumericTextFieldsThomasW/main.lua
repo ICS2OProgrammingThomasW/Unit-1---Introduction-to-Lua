@@ -1,8 +1,8 @@
 -----------------------------------------------------------------------------------------
 -- Title:
 -- Name:
--- Corse:
--- This program displays a math question and asks the user to answer in a numeric textfield.
+-- Course:
+-- This program displays a math question and asks the user to answer in a numeric textField.
 -- terminal.
 
 
@@ -24,7 +24,23 @@ local randomNumber1
 local randomNumber2
 local userAnswer
 local correctAnswer
+local wrongAnswer
 local randonOperator
+local pointsTextObject
+local points = 0
+
+----------------------------------------------------------------------------------
+-- SOUNDS
+---------------------------------------------------------------------------------
+
+-- Correct sound
+local correctSound = audio.loadSound( "Sounds/correctSound.mp3" ) -- Setting a variable to an mp3 file
+local correctSoundChannel
+
+-- Wrong sound
+local wrongSound = audio.loadSound( "Sounds/wrongSound.mp3" ) -- Setting a variable to an mp3 file
+local wrongSoundChannel
+
 
 ------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
@@ -42,16 +58,16 @@ local  function AskQuestion()
 		-- calculate the correct answer
 	   correctAnswer = randomNumber1 + randomNumber2 
 
-	   -- display the question to the user
+	   	-- display the question to the user
 	 	questionObject.text = randomNumber1 .. " + " .. randomNumber2 .. " = "
-	-- handle the case for subtraction
+		-- handle the case for subtraction
 	elseif (randomOperator == 2) then
-
-	 -- display the question to the user 
-	 questionObject.text = randomNumber1 .. " - " .. randomNumber2 .. " = "
-	 -- handle the case for addition
-	elseif (randomOperator == 1) then
-
+ 		correctAnswer = randomNumber1 - randomNumber2 
+		-- display the question to the user 
+		questionObject.text = randomNumber1 .. " - " .. randomNumber2 .. " = "
+	 	-- handle the case for addition
+	elseif (randomOperator == 3) then
+ 		correctAnswer = randomNumber1 * randomNumber2 
 		-- display the question to the user
 	 	questionObject.text = randomNumber1 .. " * " .. randomNumber2 .. " = "
 	end
@@ -83,12 +99,32 @@ local function NumericFieldListener( event )
 		userAnswer = tonumber(event.target.text)
 
 		-- if the users answer and the correct answer are the same:
-		if (userAnswer == correctAnswer)then
+		if (userAnswer == correctAnswer) then
 			correctObject.isVisible = true
+			wrongObject.isVisible = false
+			event.target.text = ""
 			timer.performWithDelay(2000, HideCorrect)
+			points = points +1
+
+			correctSoundChannel = audio.play(correctSound)
+
+			-- For each answer you get correct your points increase
+			pointsTextObject.text = "points = " .. points 
+		
+			-- if the users answer and the correct answer are the same:
+		else 
+			wrongObject.isVisible = false
+			wrongObject.isVisible = true
+			event.target.text = ""
+			timer.performWithDelay(2000, HideInCorrect)
+			wrongSoundChannel = audio.play(wrongSound)
 		end
 	end
 end
+
+-- create a points box make it visible to see
+pointsTextObject = display.newText(" points = " .. points, 300, 200, nil, 50 )
+pointsTextObject:setTextColor(150/255, 250/255, 150/255)
 
 ----------------------------------------------------------------------
 -- OBJECT CREATION
@@ -103,10 +139,10 @@ correctObject = display.newText( "Correct!", display.contentWidth/2, display.con
 correctObject:setTextColor(155/255, 42/255, 198/255)
 correctObject.isVisible = false
 
--- create the correct text object and make it invisible
-correctObject = display.newText( "Incorrect!", display.contentWidth/2, display.contentHeight*2/3, nil, 50 )
-correctObject:setTextColor(155/255, 42/255, 198/255)
-correctObject.isVisible = false
+wrongObject = display.newText( "Incorrect!", display.contentWidth/2, display.contentHeight*2/3, nil, 50 )
+wrongObject:setTextColor(155/255, 42/255, 198/255)
+wrongObject.isVisible = false
+
 
 -- create numeric field 
 numericField = native.newTextField( display.contentWidth/2, display.contentHeight/2, 150, 80)
@@ -120,15 +156,4 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 
 -- call the function to ask the question
 AskQuestion()
-
--- create a point text object set its position 
-local textObject = display.newText("points", 40, 9, nil, 50)
-textObject.x = display.contentWidth/2
-textObject.y = 100
-
-
-
-
-
-
 
