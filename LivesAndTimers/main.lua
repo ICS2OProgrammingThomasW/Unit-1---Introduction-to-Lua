@@ -149,8 +149,8 @@ local function UpdateTime()
 
 		 (secondsLeft == 0 ) 
 		-- reset the number of seconds left
-		secondsLeft = totalSeconds 
-		lives = lives - 1
+		--secondsLeft = totalSeconds 
+		--lives = lives - 1
 
 		if  (lives == 1) then 
 			heart1.isVisible = false
