@@ -19,7 +19,6 @@ display.setDefault("background", 100/255, 150/255, 190/255)
 ------------------------------------------------------------------------------------
 
 -- create local variables
-local secondsLeft
 local questionObject
 local correctObject
 local numericField

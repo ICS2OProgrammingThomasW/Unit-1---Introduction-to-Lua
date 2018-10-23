@@ -53,7 +53,7 @@ local function heartListener(touch)
 end
 
 
-heart:addEventListener("touch", HeartListener)
+          heart:AddEventListener("touch", HeartListener)
 
 
 local function starListener(touch)
