@@ -105,7 +105,6 @@ local function NumericFieldListener( event )
 			event.target.text = ""
 			timer.performWithDelay(2000, HideCorrect)
 			points = points +1
-
 			correctSoundChannel = audio.play(correctSound)
 
 			-- For each answer you get correct your points increase

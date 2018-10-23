@@ -80,3 +80,4 @@ end
 Runtime:addEventListener("enterFrame", MoveRocket)
 
 rocketship:scale( -1, -1 )
+

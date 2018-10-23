@@ -10,9 +10,7 @@ display.setDefault ("background", 153/255, 204/255, 255/255)
 --hide status bar
 display.setStatusBar(display.HiddenStatusBar)
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 ------------------------------------------------------------------
 -- SOUNDS
 ------------------------------------------------------------------
@@ -24,23 +22,6 @@ local correctSoundChannel
 -- Wrong sound
 local wrongSound = audio.loadSound( "Sounds/wrongSound.mp3" ) -- Setting a variable to an mp3 file
 local wrongSoundChannel
-=======
->>>>>>> 59e531cbcb548ceed8c094f1c162e72204579524
------------------------------------------------------------------
--- SOUNDS
------------------------------------------------------------------
-
--- create sound
-local correctSound = audio.loadSound(" Sounds/correctSound.mp3") -- Setting a variable to an mp3 file
-local correctSoundChannel1
-
--- create sound
-local wrongSound = audio.loadSound(" Sounds/wrongSound.mp3") -- Setting a variable to an mp3 file
-local wrongSoundChannel1
-<<<<<<< HEAD
-=======
->>>>>>> 7f0b15cf007f7359ac0cab866e545ce0c7f09dec
->>>>>>> 59e531cbcb548ceed8c094f1c162e72204579524
 
 -- create blue button, set its position and make it visible
 local blueButton = display.newImageRect("Images/Fast Button Inactive@2x.png",198, 96)
