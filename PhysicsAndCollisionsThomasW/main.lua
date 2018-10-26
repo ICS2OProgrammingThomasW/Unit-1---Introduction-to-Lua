@@ -15,4 +15,3 @@ physics.start()
 ------------------------------------------------------------
 -- Ground 
 local ground = display.newImage("Images/ground.png", 0, 0)
-1111477714444477444444411111111111111111111474444444411111111111111111111474    mkkkkokm mkokmknjju9bhjhj

@@ -10,4 +10,10 @@
 -- Hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
-display.setDefault("background", 100/255, 30/255, 50/255)
+display.setDefault("background", 220/255, 195/255, 225/255)
+
+-- setting position
+bkg.anchorX = 0
+bkg.anchorY = 0
+
+
