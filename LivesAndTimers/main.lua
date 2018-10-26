@@ -127,6 +127,7 @@ local function DecreaseLives()
 		heart2.isVisible = true
 		heart3.isVisible = true
 		heart4.isVisible = true
+	
 	elseif (lives == 2) then
 		heart1.isVisible = false
 		heart2.isVisible = false
@@ -144,6 +145,10 @@ local function DecreaseLives()
 		heart2.isVisible = false
 		heart3.isVisible = false
 		heart4.isVisible = false
+		gameOver.alpha = 1
+		totalSeconds = 0
+		numericField:removeSelf()
+ 	
  	end
 
  -- call the function to ask a new question
@@ -196,6 +201,7 @@ local function UpdateTime()
 	-- display the number of seconds left in the clock object
 	clockText.text = secondsLeft .. ""
 
+<<<<<<< HEAD
 	if  (secondsLeft == 0) then
 		-- reset the number of seconds left
 		secondsLeft = totalSeconds
@@ -204,6 +210,15 @@ local function UpdateTime()
 		
 	end
 end
+=======
+	if (secondsLeft == 0) then
+		-- reset the number of seconds left
+		secondsLeft = totalSeconds
+		lives = lives -1
+		DecreaseLives(lives)
+	end
+end 
+>>>>>>> 2675145606be7c1071c5927baf9a0e358f3a6824
 
 -- function that calls the timer
 local function StartTimer()
@@ -235,6 +250,11 @@ wrongObject.isVisible = false
 
 clockText = display.newText(" Time Remaining = " .. secondsLeft, 412, 300, nil, 50)
 -- Function Calls 
+
+gameOver = display.newImageRect("Images/gameOver.png", 800 ,800)
+gameOver.x = display.contentCenterX
+gameOver.y = display.contentCenterY
+gameOver.alpha = 0
 
 -- create the lives to display on the screen 
 heart1 = display.newImageRect("Images/heart.png", 100, 100)
