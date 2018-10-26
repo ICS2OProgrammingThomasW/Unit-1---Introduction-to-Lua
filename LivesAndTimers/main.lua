@@ -42,8 +42,8 @@ local heart3
 local heart4
 
 -- variables for the timer
-local totalSeconds = 5 
-local secondsLeft = 5
+local totalSeconds = 10
+local secondsLeft = totalSeconds
 local clockText
 local countDownTimer
 
@@ -111,6 +111,10 @@ end
 
 		-- function that decreases the lives
 local function DecreaseLives()
+	
+	if (secondsLeft == 0) then
+		lives = lives -1
+	end
 
 	if (lives == 4) then
 		heart1.isVisible = true
@@ -191,7 +195,14 @@ local function UpdateTime()
 
 	-- display the number of seconds left in the clock object
 	clockText.text = secondsLeft .. ""
-	
+
+	if  (secondsLeft == 0) then
+		-- reset the number of seconds left
+		secondsLeft = totalSeconds
+	elseif (totalSeconds == 0) then
+		lives = lives -1
+		
+	end
 end
 
 -- function that calls the timer
