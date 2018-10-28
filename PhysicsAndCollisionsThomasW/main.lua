@@ -65,6 +65,8 @@ bkg.y = display.contentCenterY
 -- send to back 
 bkg:toBack()
 
+bkg:scale(2.4,2.4)
+
 -------------------------------------------
 -- FUNCTIONS
 -------------------------------------------
@@ -88,7 +90,7 @@ local function secondBall()
 	physics.addBody(ball2, {density = 40, friction = 15.0, bounce = 0.80, radius = 19.5})
 end
 
-secondBall( xScale == 4, yScale == 5 )
+--super_ball:scale(0.2,0.2)
 ------------------------------------------------------------------------------------------------
 local function thirdBall()
 	-- creating third ball
@@ -97,7 +99,6 @@ local function thirdBall()
 	-- adding to physics
 	physics.addBody(ball3, {density = 8.6, friction = 5.9, bounce = 0.70, radius = 26.5})
 end
-
 --------------------------------------------------------------------
 -- TIMER DELAYS -call each function after this given millisecond
 --------------------------------------------------------------------
