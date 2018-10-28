@@ -111,6 +111,10 @@ end
 
 		-- function that decreases the lives
 local function DecreaseLives()
+	
+	if (secondsLeft == 0) then
+		lives = lives -1
+	end
 
 	if (lives == 4) then
 		heart1.isVisible = true
@@ -197,6 +201,16 @@ local function UpdateTime()
 	-- display the number of seconds left in the clock object
 	clockText.text = secondsLeft .. ""
 
+<<<<<<< HEAD
+	if  (secondsLeft == 0) then
+		-- reset the number of seconds left
+		secondsLeft = totalSeconds
+	elseif (totalSeconds == 0) then
+		lives = lives -1
+		
+	end
+end
+=======
 	if (secondsLeft == 0) then
 		-- reset the number of seconds left
 		secondsLeft = totalSeconds
@@ -204,6 +218,7 @@ local function UpdateTime()
 		DecreaseLives(lives)
 	end
 end 
+>>>>>>> 2675145606be7c1071c5927baf9a0e358f3a6824
 
 -- function that calls the timer
 local function StartTimer()

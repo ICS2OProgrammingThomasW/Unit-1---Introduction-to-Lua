@@ -1,14 +1,15 @@
 -----------------------------------------------------------------------------------------
 -- Title: Physics and collisions
 -- Name: Thomas Wehbi
--- Course: ICS2O
--- Program: this program will display balls that will roll down a beam.
+-- Course: ICS20
+-- this program displays balls that roll down a beam
 
--- load Physiscs 
-local Physics = require("physics")
+-- load physics 
+local physics = require("physics")
 
--- start physics 
+-- start physics
 physics.start()
+<<<<<<< HEAD
 -------------------------------------------------------------------
 -- OBJECTS
 -------------------------------------------------------------------
@@ -135,4 +136,11 @@ timer.performWithDelay( 50, thirdBall)
 
 
 
+=======
+>>>>>>> f9f3c4c2b2851992bc1ddff3a6fd5d3681b3c1d5
 
+-------------------------------------------------------------
+-- OBJECTS
+------------------------------------------------------------
+-- Ground 
+local ground = display.newImage("Images/ground.png", 0, 0)
