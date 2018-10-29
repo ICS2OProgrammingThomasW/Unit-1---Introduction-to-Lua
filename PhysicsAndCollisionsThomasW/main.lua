@@ -4,6 +4,9 @@
 -- Course: ICS20
 -- this program displays balls that roll down a beam
 
+-- hide the status bar
+display.setStatusBar(display.HiddenStatusBar)
+
 -- load physics 
 local physics = require("physics")
 
