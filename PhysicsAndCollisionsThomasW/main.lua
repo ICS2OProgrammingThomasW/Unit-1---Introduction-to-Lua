@@ -9,7 +9,6 @@ local physics = require("physics")
 
 -- start physics
 physics.start()
-<<<<<<< HEAD
 -------------------------------------------------------------------
 -- OBJECTS
 -------------------------------------------------------------------
@@ -98,7 +97,8 @@ local function thirdBall()
 	local ball3 = display.newImage("Images/super_ball.png", 0, 0)
 
 	-- adding to physics
-	physics.addBody(ball3, {density = 8.6, friction = 5.9, bounce = 0.70, radius = 26.5})
+	physics.addBody(ball3, {density = 8.6, friction = 5.9, bounce = 0.70, radius = 50})
+	ball3:scale( 2, 2 )
 end
 --------------------------------------------------------------------
 -- TIMER DELAYS -call each function after this given millisecond
@@ -107,37 +107,6 @@ timer.performWithDelay( 0, firstBall)
 timer.performWithDelay( 500, secondBall)
 timer.performWithDelay( 50, thirdBall)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> f9f3c4c2b2851992bc1ddff3a6fd5d3681b3c1d5
 
 -------------------------------------------------------------
 -- OBJECTS

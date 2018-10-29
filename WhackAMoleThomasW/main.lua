@@ -1,3 +1,4 @@
+
 -----------------------------------------------------------------------------------------
 -- WhackAMole
 -- Name: Thomas Wehbi
@@ -10,6 +11,10 @@
 -- Hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
+local points = 0
+
+local score
+
 display.setDefault("background", 220/255, 195/255, 225/255)
 
 --creating a mole
@@ -19,25 +24,30 @@ Mouse:scale(0.1, 0.1)
 -- setting position
 Mouse.x = display.contentCenterX
 Mouse.y = display.contentCenterY
+Mouse.isVisible = false
 
 -------------------------------------------------------FUNCTIONS-------------------------------------------------------------------
 
 -- this functionthat mkaes the mole appear in a random (x,y) position on the screen 
 -- before calling the Hide function
 function PopUp()
+	 
 
 	--choosing random position on the screen between 0 and the size of the screen
 	Mouse.x = math.random( 0, display.contentWidth )
 	Mouse.y = math.random( 0, display.contentHeight )
+	Mouse.isVisible  = true
+	timer.performWithDelay( 500, Hide)
 end
 
 --This function calls the PopUp function after 3 seconds 
 function PopUpDelay()
-	timer.performWithDelay( 4000, PopUp)
+	timer.performWithDelay( 2000, PopUp)
 end
 
 -- this function makes the mole invisible and then calls the PopUpDelay function 
 function Hide( )
+	PopUpDelay()
 
 
 	-- changing visiblity
@@ -55,6 +65,11 @@ function Whacked( event )
 
 	-- if touch phase just started 
 	if (event.phase == "began") then 
+
+		points = points + 1
+
+		score.text = "Score = " .. points
+
 	end 
 
 end 
@@ -64,12 +79,13 @@ end
 -- function is called 
 Mouse:addEventListener( "touch", Whacked )
 
-
+--creating the text
+score = display.newText(" points = " .. points, 300, 200, nil, 50 )
+score:setTextColor(150/255, 250/255, 150/255)
 
 -------------------------------START THE GAME------------------------------------
 -- starting the game
-function StartGame()
-end 
+GameStart()
 
 
 
