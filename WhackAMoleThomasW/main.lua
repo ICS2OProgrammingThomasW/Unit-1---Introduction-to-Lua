@@ -12,8 +12,8 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 local points = 0
-
 local score
+local whack
 
 display.setDefault("background", 220/255, 195/255, 225/255)
 
@@ -44,6 +44,8 @@ end
 function PopUpDelay()
 	timer.performWithDelay( 2000, PopUp)
 end
+
+whackChannel = audio.play(whack)
 
 -- this function makes the mole invisible and then calls the PopUpDelay function 
 function Hide( )
@@ -82,6 +84,9 @@ Mouse:addEventListener( "touch", Whacked )
 --creating the text
 score = display.newText(" points = " .. points, 300, 200, nil, 50 )
 score:setTextColor(150/255, 250/255, 150/255)
+
+local whack = audio.loadSound( "Sounds/whackmp3" ) -- setting a variable to n mp3 file
+local whackChannel
 
 -------------------------------START THE GAME------------------------------------
 -- starting the game
