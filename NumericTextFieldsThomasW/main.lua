@@ -98,6 +98,8 @@ local function NumericFieldListener( event )
 		-- when the answer is submitted (enter key is pressed) set user input to user's answer
 		userAnswer = tonumber(event.target.text)
 
+
+
 		-- if the users answer and the correct answer are the same:
 		if (userAnswer == correctAnswer) then
 			correctObject.isVisible = true
@@ -154,5 +156,7 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 --------------------------------------------------------------------------
 
 -- call the function to ask the question
+StartTimer()
+
 AskQuestion()
 
