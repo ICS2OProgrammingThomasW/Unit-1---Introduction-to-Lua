@@ -1,4 +1,4 @@
-l-S-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
 -- Title:Lives and Timers
 -- Name: Thomas Wehbi
 -- Course: ICS2O
@@ -178,13 +178,14 @@ local function NumericFieldListener( event )
 			correctSoundChannel = audio.play(correctSound)
 
 			-- For each answer you get correct your points increase
-			pointsTextObject.text = "points = " .. points 
+			pointsTextObject.text = "Points = " .. points 
 		
 			-- if the users answer and the correct answer are the same:
 		else 
 			-- call the funcion to decrease the lives
 			lives = lives -1
 			DecreaseLives()
+			wrongObject.text = "Incorrect, the correct answer is " .. correctAnswer
 			wrongObject.isVisible = true			
 			timer.performWithDelay(2000, HideWrong)
 			wrongSoundChannel = audio.play(wrongSound)
@@ -226,7 +227,6 @@ local function UpdateTime()
 		lives = lives -1
 		
 	end
-end
 
 	if (secondsLeft == 0) then
 		-- reset the number of seconds left
